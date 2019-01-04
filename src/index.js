@@ -3,7 +3,6 @@ import ReactDom from "react-dom";
 
 import {Router, Route, Link} from 'react-router-dom';
 
-
 import routes from "./routes.jsx";
 import history from './history.jsx';
 
@@ -11,14 +10,6 @@ import HomeContainer from "./js/components/page/HomeContainer.jsx";
 import DashboardContainer from "./js/components/page/DashboardContainer.jsx";
 import PageContainer from "./js/components/page/PageContainer.jsx";
 import Header from "./js/components/header/Header.jsx";
-
-
-/*
-ReactDom.render(
-    <Router  history={history} routes={routes}/>,
-    document.querySelector('#app')
-);
-*/
 
 ReactDom.render(
     <div>

@@ -1,12 +1,16 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import list from "../../../value.jsx";
+import Post from "../post/Post.jsx";
+
+let listItems;
 
 class HomeContainer extends Component {
     constructor() {
         super();
-        let listItems;
-        axios('http://react.loc/test.php',  {
+
+        /*axios('http://react.loc/test.php',  {
                 method:'POST',
                 mode: 'no-cors',
                 headers: {
@@ -28,12 +32,13 @@ class HomeContainer extends Component {
             .catch(function (error) {
                 console.log(1);
                 console.log(error);
-            });
+            });*/
+
 
         this.state = {
             seo_title: ""
         };
-       // this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
 
     }
@@ -44,15 +49,18 @@ class HomeContainer extends Component {
 
     render() {
         const {seo_title} = this.state;
-      //  console.log(this.state.list);
+        const listItems = list.map((item) =>
+            <Post item={item}/>
+        );
+
         return (
             <div id="home">
 
                 <section className='container'>
                     home
-                    <ul>
 
-                    </ul>
+                    {listItems}
+
                 </section>
 
             </div>
@@ -63,5 +71,3 @@ class HomeContainer extends Component {
 
 export default HomeContainer;
 
-let content = document.getElementById("app");
-ReactDOM.render(<HomeContainer/>, content);

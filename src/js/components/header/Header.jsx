@@ -22,15 +22,17 @@ class Header extends Component {
         return (
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark  bg-dark">
+                    <Router history={history}>
                     <div className="container">
-                        <a className="navbar-brand" href="/">Home</a>
+
+                        <Link className="navbar-brand" to="/" router="/">Home</Link>
                         <button onClick={(e) => this.mobileMenu(e)} className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                                 aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarCollapse">
-                            <Router history={history}>
+
                                 <ul className="navbar-nav mr-auto">
                                     <li className="nav-item active">
 
@@ -44,10 +46,11 @@ class Header extends Component {
 
                                 </ul>
 
-                            </Router>
+
 
                         </div>
                     </div>
+                    </Router>
                 </nav>
 
             </header>
