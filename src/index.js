@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 
 import {Router, Route, Link} from 'react-router-dom';
 
+import style from "./css.jsx";
 import routes from "./routes.jsx";
 import history from './history.jsx';
 

@@ -1,5 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     module: {
@@ -19,30 +21,16 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /\.scss$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader",
-                    options: {
-                        includePaths: ["/src/design/sass/"]
-                    }
-                }]
-            }
+
         ]
     },
+
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
         }),
-        new ExtractTextPlugin({
-            filename: './css/style.bundle.css',
-            allChunks: true,
-        }),
+        extractPlugin,
     ],
     devServer: {
 
@@ -52,22 +40,3 @@ module.exports = {
         historyApiFallback: true
     }
 };
-
-/*
-*
-*  module: {
-        rules: [{
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader"
-            }, {
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader",
-                options: {
-                    includePaths: ["absolute/path/a", "absolute/path/b"]
-                }
-            }]
-        }]
-    }
-    */

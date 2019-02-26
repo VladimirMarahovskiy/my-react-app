@@ -50,7 +50,7 @@ class HomeContainer extends Component {
     render() {
         const {seo_title} = this.state;
         const listItems = list.map((item) =>
-            <Post item={item}/>
+            <Post key={item.name.toString()} item={item}/>
         );
 
         return (
